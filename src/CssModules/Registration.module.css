@@ -1,0 +1,19 @@
+.main_form {
+    width: 471px;
+    height: 633px;
+
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -316px 0px 0px -235px;
+    transition: all 0.2s;
+}
+
+@media screen and (max-width: 900px) {
+    .main_form {
+        width: 300px;
+        height: 500px;
+        margin: -250px 0px 0px -150px;
+    }
+}
