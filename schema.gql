@@ -1,0 +1,17 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Users {
+  id: Int!
+  firstname: String!
+  lastname: String!
+  isActive: Boolean!
+}
+
+type Query {
+  allusers: [Users!]!
+  user(id: Float!): Users!
+  removeuser(id: Float!): Users!
+  adduser(id: Float!, firstname: String!, lastname: String!, isActive: Boolean!): Users!
+}
