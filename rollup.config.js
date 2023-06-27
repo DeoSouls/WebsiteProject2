@@ -14,12 +14,13 @@ export default (async () => ({
 		file: 'dist/bundle.js',
 		format: 'iife',
 	},
+    check: false,
     plugins: [
         nodeResolve({
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
             browser: true
         }),
-        commonjs(),
+        commonjs({ sourceMap: false}),
         replace({
             'process.env.NODE_ENV': JSON.stringify('development')
         }),

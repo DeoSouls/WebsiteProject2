@@ -4,16 +4,81 @@
 
     border: 1px solid black;
     position: absolute;
+    padding-left: 37px;
+    padding-top: 15px;
     top: 50%;
     left: 50%;
     margin: -316px 0px 0px -235px;
-    transition: all 0.2s;
+    transition: all 0.4s ease-in-out;
+}
+
+.register_title {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+.reg_input_username {
+    width: 437px;
+    height: 36px; 
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.4s ease-in-out;
+}
+
+.reg_but_submit {
+    width: 437px;
+    height: 40px;
+
+    background-color: black;
+    color: white;
+
+    font-size: 20px;
+    font-family: Amethysta;
+    transition: all 0.4s ease-in-out;
+}
+
+.recaptcha_widget {
+    width: 437px;
+}
+
+.recaptcha_form {
+    height: 98px;
+    margin-top: 30px;
+    transition: all 0.4s ease-in-out;
+}
+
+#register_symbol {
+    font-family: Amethysta;
 }
 
 @media screen and (max-width: 900px) {
     .main_form {
-        width: 300px;
-        height: 500px;
+        width: 330px;
+        height: 590px;
         margin: -250px 0px 0px -150px;
+        padding-left: 20px;
+        padding-top: 10px;
+    }
+
+    .register_title {
+        font-size: 22px;
+    }
+
+    .reg_input_username {
+        width: 310px;
+        height: 35px; 
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .reg_but_submit {
+        width: 310px;
+        height: 30px;
+        color: white;
+        font-size: 20px;
+        font-family: Amethysta;
+    }
+
+    .recaptcha_form {
+        margin-top: 30px;
+        height: 78px;
     }
 }
