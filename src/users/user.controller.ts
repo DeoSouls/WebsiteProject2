@@ -6,23 +6,23 @@ import { User } from './user.model';
 export class UsersController {
     constructor(private usersService: UsersService){}
 
-    @Get()
+    @Get('/all_usr')
     getUsers(): Promise<User[]> {
         return this.usersService.findAll();
     }
 
-    @Post()
-    getUserOne(@Body() id: number): Promise<User> {
-        return this.usersService.findOne(id);
+    @Post('/one_usr')
+    getUserOne(@Body() email: string): Promise<User> {
+        return this.usersService.findOne(email);
     }
 
     @Post('/remove')
-    removeUser(@Body() id: number): Promise<void> {
-        return this.usersService.remove(id);
+    removeUser(@Body() email: string): Promise<void> {
+        return this.usersService.remove(email);
     }
 
     @Post('/add')
-    addUser(@Body() id: number, firstname: string, lastname: string, isActive: boolean): Promise<User> {
-        return this.usersService.addUser(id, firstname, lastname, isActive);
+    addUser(@Body() firstname: string, lastname: string, email: string, gender: string, password: string, isActive: boolean): Promise<User> {
+        return this.usersService.addUser(firstname, lastname, email, gender, password, isActive);
     }
 }

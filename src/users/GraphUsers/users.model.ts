@@ -12,5 +12,14 @@ export class Users {
     lastname: string;
 
     @Field()
+    email: string;
+
+    @Field()
+    gender: string;
+
+    @Field()
+    password: string;
+
+    @Field()
     isActive: boolean;
 }

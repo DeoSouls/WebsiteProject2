@@ -12,17 +12,17 @@ export class UsersResolver {
     }
 
     @Query(returns => Users)
-    async user(@Args('id') id: number) {
-        return this.usersService.findOne(id);
+    async user(@Args('email') email: string) {
+        return this.usersService.findOne(email);
     }
 
     @Query(returns => Users)
-    async removeuser(@Args('id') id: number) {
-        return this.usersService.remove(id);
+    async removeuser(@Args('email') email: string) {
+        return this.usersService.remove(email);
     }
 
     @Query(returns => Users)
-    async adduser(@Args('id') id: number, @Args('firstname') firstname: string, @Args('lastname') lastname: string, @Args('isActive') isActive: boolean) {
-        return this.usersService.addUser(id, firstname, lastname, isActive);
+    async adduser( @Args('firstname') firstname: string, @Args('lastname') lastname: string,  @Args('email') email: string, @Args('gender') gender: string, @Args('password') password: string, @Args('isActive') isActive: boolean) {
+        return this.usersService.addUser(firstname, lastname, email, gender, password,isActive);
     }
 }

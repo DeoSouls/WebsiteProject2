@@ -10,21 +10,21 @@ export class UsersService {
         return this.userModel.findAll();
     }
 
-    findOne(id: number): Promise<User> {
+    findOne(email: string): Promise<User> {
         return this.userModel.findOne({
           where: {
-            id,
+            email,
           },
         });
     }
 
-    async addUser(id: number, firstname: string, lastname: string, isActive: boolean): Promise<User> {
-      const user = await this.userModel.create({ id: id, firstname: firstname, lastname: lastname, isActive: isActive });
+    async addUser(firstname: string, lastname: string, email: string, gender: string, password: string, isActive: boolean): Promise<User> {
+      const user = await this.userModel.create({ firstname: firstname, lastname: lastname, isActive: isActive });
       return user;
     }
     
-    async remove(id: number): Promise<void> {
-        const user = await this.findOne(id);
+    async remove(email: string): Promise<void> {
+        const user = await this.findOne(email);
         await user.destroy();
     }
 }
