@@ -1,6 +1,6 @@
 .main_form {
     width: 471px;
-    height: 633px;
+    height: 693px;
 
     border: 1px solid black;
     position: absolute;
@@ -19,7 +19,7 @@
 
 .reg_input_username {
     width: 437px;
-    height: 36px; 
+    height: 46px; 
     font-family: 'Courier New', Courier, monospace;
     transition: all 0.4s ease-in-out;
 }
@@ -56,7 +56,6 @@
         height: 590px;
         margin: -250px 0px 0px -150px;
         padding-left: 20px;
-        padding-top: 10px;
     }
 
     .register_title {
@@ -65,8 +64,9 @@
 
     .reg_input_username {
         width: 310px;
-        height: 35px; 
+        height: 30px; 
         font-family: 'Courier New', Courier, monospace;
+        font-size: 13px;
     }
 
     .reg_but_submit {
@@ -78,7 +78,29 @@
     }
 
     .recaptcha_form {
-        margin-top: 30px;
+        margin-top: 40px;
         height: 78px;
     }
+
+    .input_validate {
+        position: absolute;
+        color: #bf1650;
+        margin: 0;
+        padding-top: 10px;
+        font-size: 13px;
+    }
+}
+
+.input_validate {
+    position: absolute;
+    color: #bf1650;
+    margin: 0;
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+.input_validate::before {
+    display: inline;
+    content: "⚠ ";
+    font-size: 13px;
 }

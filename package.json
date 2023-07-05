@@ -46,14 +46,19 @@
     "@babel/plugin-transform-runtime": "^7.22.5",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@hookform/error-message": "^2.0.1",
+    "@hookform/resolvers": "^3.1.1",
     "@mui/material": "^5.13.5",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-google-recaptcha": "^3.1.0",
+    "react-hook-form": "^7.45.1",
     "react-redux": "^8.1.0",
     "react-router-dom": "^6.13.0",
     "rollup-plugin-postcss": "^4.0.2",
-    "typescript-plugin-css-modules": "^5.0.1"
+    "typescript-plugin-css-modules": "^5.0.1",
+    "yup": "^1.2.0"
   }
 }

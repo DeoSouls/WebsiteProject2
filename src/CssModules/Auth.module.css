@@ -1,0 +1,66 @@
+.main_form {
+    width: 454px;
+    height: 274px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -137px 0px 0px -226px;
+    padding-left: 22px;
+    box-shadow: 4px 4px 8px rgb(198, 198, 198);
+}
+
+.header_auth {
+    font-size: 32px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    margin-left: 115px;
+    margin-top: 40px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.auth_input {
+    width: 410px;
+    height: 28px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.4s ease-in-out;
+}
+
+.auth_but_submit {
+    width: 137px;
+    height: 28px;
+
+    background-color: black;
+    color: white;
+
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.submit_block {
+    display: flex;
+}
+
+.ref_fgpass {
+    font-size: 17px;
+    color: #A7A7A7;
+    margin-left: 70px;
+    margin-top: 48px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input_validate {
+    position: absolute;
+    color: #bf1650;
+    margin: 0;
+    margin-top: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+}
+
+.input_validate::before {
+    display: inline;
+    content: "⚠ ";
+    font-size: 13px;
+}
