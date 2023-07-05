@@ -6,12 +6,15 @@ type Users {
   id: Int!
   firstname: String!
   lastname: String!
+  email: String!
+  gender: String!
+  password: String!
   isActive: Boolean!
 }
 
 type Query {
   allusers: [Users!]!
-  user(id: Float!): Users!
-  removeuser(id: Float!): Users!
-  adduser(id: Float!, firstname: String!, lastname: String!, isActive: Boolean!): Users!
+  user(email: String!): Users!
+  removeuser(email: String!): Users!
+  adduser(firstname: String!, lastname: String!, email: String!, gender: String!, password: String!, isActive: Boolean!): Users!
 }

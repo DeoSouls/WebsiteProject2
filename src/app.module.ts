@@ -7,6 +7,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { UsersModule } from './users/user.module';
 import { UserModule } from './users/GraphUsers/users.module';
+import { RegModule } from './registration/req.module';
 
 @Module({
   imports: [
@@ -19,14 +20,12 @@ import { UserModule } from './users/GraphUsers/users.module';
       database: 'store_data',
       autoLoadModels: true,
       synchronize: true
-    }), UsersModule, 
+    }), UsersModule, RegModule,
     UserModule, GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql',
       include: [UserModule],
     })
-  ],
-  // controllers: [AppController],
-  // providers: [AppService],
+  ]
 })
 export class AppModule {}

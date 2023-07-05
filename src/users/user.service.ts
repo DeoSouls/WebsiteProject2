@@ -19,7 +19,7 @@ export class UsersService {
     }
 
     async addUser(firstname: string, lastname: string, email: string, gender: string, password: string, isActive: boolean): Promise<User> {
-      const user = await this.userModel.create({ firstname: firstname, lastname: lastname, isActive: isActive });
+      const user = await this.userModel.create({ firstname: firstname, lastname: lastname, email: email, gender: gender, password: password,  isActive: isActive });
       return user;
     }
     

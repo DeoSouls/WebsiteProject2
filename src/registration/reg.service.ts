@@ -20,12 +20,14 @@ export class RegService {
             withCredentials: true
         });
 
-        console.log(data);
-
-        const userValidate = await this.usersService.findOne(email);
-        if(userValidate) {
-            throw new Error(`user under this ${email} is created`)
+        if(data.success === true) {
+           throw new Error('Сaptcha was not passed')
         }
+
+        // const userValidate = await this.usersService.findOne(email);
+        // if(userValidate) {
+        //     throw new Error(`user under this ${email} is created`)
+        // }
 
         const hash_pass = await bcrypt.hash(password, 8);
 
