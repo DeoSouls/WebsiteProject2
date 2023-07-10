@@ -9,10 +9,15 @@ export class AuthService {
 
     async signIn(email: string, pass: string): Promise<any> {
         const user = await this.usersService.findOne(email);
-        const isMatch = await bcrypt.compare(user.password, pass);
-        
+
+        if(user['dataValues'] === undefined) {
+            throw new UnauthorizedException("User not found");
+        }
+
+        const isMatch = await bcrypt.compareSync(pass, user['dataValues']['password']);
+
         if(!isMatch) {
-            throw new UnauthorizedException();
+            throw new UnauthorizedException("Wrong password");
         }
 
         const payload = { email: user.email, isActivate: false} 
