@@ -5,13 +5,10 @@
       "lib": [ "es6" ,"dom" ],                     
       "allowJs": true,
       "jsx": "react",
-      "outDir": "build",                      
-      "rootDir": "src",
-      "strict": true,         
+      "outDir": "./dist/",   
       "noImplicitAny": false,
       "types": ["jest"],
       "esModuleInterop": true,
-      "moduleResolution": "node",
-      "plugins": [{ "name": "typescript-plugin-css-modules" }]
+      "moduleResolution": "node"
     }
 }

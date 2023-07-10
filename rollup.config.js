@@ -8,13 +8,15 @@ import tsPlugin from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 
+var defaults = { compilerOptions: { declaration: true } };
+
 export default (async () => ({
 	input: 'src/index.tsx',
 	output: {
 		file: 'dist/bundle.js',
 		format: 'iife',
 	},
-    check: false,
+    cache: true,
     plugins: [
         nodeResolve({
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -27,13 +29,12 @@ export default (async () => ({
         babel({
             presets: ["@babel/preset-react"],
             exclude: 'node_modules/**',
-            plugins: ['external-helpers'],
-            externalHelpers: true
+            plugins: ['external-helpers']
         }),
         tsPlugin({
             tsconfig: './tsconfig.json',
             declaration: true,
-            declarationDir: 'dist',
+            declarationDir: 'dist'
         }),
         serve({
             open: true,

@@ -15,7 +15,7 @@ type Inputs = {
 export const Auth = (props) => {
 
     const schema = yup
-    .object({
+    .object().shape({
         email: yup.string().email("Not correct email").required("Email is required"),
         password: yup.string().required("Pass is required").min(6, "The pass must be at least 6 characters long")
         .max(60, "The name must be no more than 60 characters")

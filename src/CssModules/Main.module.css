@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+}
+
+.main_style {
+    height: 1200px;
+}
+
+.main_nav {
+    width: auto;
+    height: max-content;
+    position: sticky;
+}
+
+.nav_block {
+    width: auto;
+    height: 55px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 80px;
+}
+
+.elem_list_logo {
+    width: 140px;
+    height: 30px;
+    margin-right: 100px;
+    background-image: url("http://localhost:5000/logo.jpg");
+    background-repeat: round;
+    text-decoration: none;
+}
+
+.elem_list_home {
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.elem_list_home:before {
+    content: " ";
+    position: absolute;
+    top: 25px;
+    left: 1px;
+    width: 0px;
+    height: 2px;
+    background-color: black;
+    background-size: 33px;
+    transition: 0.2s all ease-in;
+}
+
+.elem_list_home:hover:before {
+    width: 52px;
+}
+
+.elem_list_about,
+.elem_list_catalog {
+    position: relative;
+    text-decoration: none;
+    color: black;
+}
+
+.elem_list_catalog:before {
+    content: " ";
+    position: absolute;
+    top: 25px;
+    left: 1px;
+    width: 0px;
+    height: 2px;
+    background-color: black;
+    background-size: 33px;
+    transition: 0.2s all ease-in;
+}
+
+.elem_list_catalog:hover:before {
+    width: 65px;
+}
+
+.elem_list_about:before {
+    content: " ";
+    position: absolute;
+    top: 25px;
+    left: 1px;
+    width: 0px;
+    height: 2px;
+    background-color: black;
+    background-size: 33px;
+    transition: 0.2s all ease-in;
+}
+
+.elem_list_about:hover:before {
+    width: 53px;
+}
+
+.elem_list_help {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    margin-right: -80px;
+}
+
+.elem_list_help:before {
+    content: " ";
+    position: absolute;
+    top: 25px;
+    left: 1px;
+    width: 0px;
+    height: 2px;
+    background-color: black;
+    background-size: 33px;
+    transition: 0.2s all ease-in;
+}
+
+.elem_list_help:hover:before {
+    width: 40px;
+}
+
+.list_btn {
+    height: 30px;
+    font-size: 30px;
+    text-align: center;
+    background-color: rgb(216, 216, 216);
+    border-radius: 50%;
+}
+
+.menu_refs {
+    width: auto;
+    height: max-content;
+    border: 1px solid rgb(235, 235, 235);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    transition: 0.8s all ease-in-out;
+}
+
+.right_menu,
+.left_menu {
+    width: 150px;
+    height: max-content;
+    margin-left: 50px;
+    margin-top: 10px;
+    display: block;
+}
+
+.ref_on_page {
+    display: none;
+    opacity: 0;
+    transition: 0.1s all ease-in-out;
+}

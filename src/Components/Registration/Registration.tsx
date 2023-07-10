@@ -13,13 +13,13 @@ enum GenderEnum {
     female = 'female'
 }
 
-type Inputs = {
-    firstname: string
-    lastname: string
-    email: string
-    gender: GenderEnum
-    password: string
-    confpassword: string
+interface Inputs {
+    firstname: string;
+    lastname: string;
+    email: string;
+    gender: GenderEnum;
+    password: string;
+    confpassword: string;
 }
 
 const Registration = (props) => {
@@ -28,7 +28,7 @@ const Registration = (props) => {
     const [validCaptcha, setValidCaptcha] = useState(false);
 
     const schema = yup
-    .object({
+    .object().shape({
         firstname: yup.string().required("First name is required").min(4, "The name must be at least 4 characters long")
         .max(20,"The name must be no more than 20 characters"),
         lastname: yup.string().required("Last name is required").min(4, "The name must be at least 4 characters long")
@@ -39,8 +39,8 @@ const Registration = (props) => {
         .max(60, "The name must be no more than 60 characters"),
         confpassword: yup.string().required("Pass is required").oneOf([yup.ref("password")], "Passwords must match")
         .min(6, "The pass must be at least 6 characters long").max(60, "The name must be no more than 60 characters"),
-    })
-    .required();
+    }).required();
+
 
     const { register, handleSubmit, control, formState: { errors } } = useForm<Inputs>({
         defaultValues: {
@@ -88,27 +88,27 @@ const Registration = (props) => {
                             {
                                 errors.firstname? 
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Username:" variant="standard" 
-                                sx={{ marginTop: '13px'}} InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '13px'}} InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("firstname")} error aria-invalid={errors.firstname ? "true" : "false"} />
                                 :
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Username:" variant="standard" 
-                                sx={{ marginTop: '13px'}} InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '13px'}} InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("firstname")} aria-invalid={errors.firstname ? "true" : "false"} />
                             }
                             {errors.firstname? <p className={styles.input_validate} role='alert'>{errors.firstname?.message}</p> : null}
                             {
                                 errors.lastname? 
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Lastname:" variant="standard" 
-                                sx={{ marginTop: '29px'}} InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '29px'}} InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("lastname")} error aria-invalid={errors.lastname ? "true" : "false"} />
                                 :
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Lastname:" variant="standard" 
-                                sx={{ marginTop: '29px'}} InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '29px'}} InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("lastname")} aria-invalid={errors.lastname ? "true" : "false"} />
                             }
                             {errors.lastname? <p className={styles.input_validate} role='alert'>{errors.lastname?.message}</p> : null}
                             <FormControl sx={{ marginTop: '40px'}}>
-                                <FormLabel id='radio-label' sx={{fontSize: '17px', fontFamily: 'Amethysta', color: 'black'}}>Gender</FormLabel>
+                                <FormLabel id='radio-label' sx={{fontSize: '17px', fontFamily: 'Segoe UI', color: 'black'}}>Gender</FormLabel>
                                 <Controller 
                                     control={control}
                                     name='gender'
@@ -123,33 +123,33 @@ const Registration = (props) => {
                             {
                                 errors.email? 
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Email:" variant="standard" 
-                                sx={{ marginTop: '10px'}} error InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '10px'}} error InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("email")}/>
                                 :
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Email:" variant="standard" 
-                                sx={{ marginTop: '10px'}} InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '10px'}} InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("email")}/>
                             }
                             {errors.email? <p className={styles.input_validate} role='alert'>{errors.email?.message}</p> : null}
                             {
                                 errors.password? 
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Password:" variant="standard" 
-                                sx={{ marginTop: '29px'}} error InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '29px'}} error InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("password")}/>
                                 :
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Password:" variant="standard" 
-                                sx={{ marginTop: '29px'}} InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '29px'}} InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("password")}/>
                             }
                             {errors.password? <p className={styles.input_validate} role='alert'>{errors.password?.message}</p> : null}
                             {
                                 errors.confpassword? 
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Confirm password:" variant="standard" 
-                                sx={{ marginTop: '29px'}} error InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '29px'}} error InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("confpassword")}/>
                                 :
                                 <TextField className={styles.reg_input_username} id="standart-basic" label="Confirm password:" variant="standard" 
-                                sx={{ marginTop: '29px'}} InputLabelProps={{sx: {fontFamily: 'Amethysta', fontSize: '17px'}}} 
+                                sx={{ marginTop: '29px'}} InputLabelProps={{sx: {fontFamily: 'Segoe UI', fontSize: '17px'}}} 
                                 {...register("confpassword")}/>
                             }
                             {errors.confpassword? <p className={styles.input_validate} role='alert'>{errors.confpassword?.message}</p> : null}

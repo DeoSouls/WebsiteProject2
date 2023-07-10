@@ -10,7 +10,6 @@
       ["react"],
       ["@babel/preset-typescript"]
     ],
-    "plugins": ["external-helpers", "@babel/plugin-proposal-class-properties", "@babel/plugin-transform-runtime"],
     "test": [
       "jest"
     ]
