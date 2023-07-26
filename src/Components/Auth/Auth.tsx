@@ -5,6 +5,7 @@ import { TextField, Button, ThemeProvider } from '@mui/material';
 import { themeTextField } from '../../theme/themeComponents'; 
 import { yupResolver } from "@hookform/resolvers/yup"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 
 type Inputs = {
@@ -14,6 +15,7 @@ type Inputs = {
 
 export const Auth = (props) => {
 
+    const navigation = useNavigate();
     const schema = yup
     .object().shape({
         email: yup.string().email("Not correct email").required("Email is required"),
@@ -34,7 +36,11 @@ export const Auth = (props) => {
             'Content-Type':'application/x-www-form-urlencoded'
         },withCredentials: true})
         .then(response => 
-            console.log(response)
+            {
+                console.log(response);
+                localStorage.setItem('access_token', response.data.token)
+                navigation('/');
+            }
         )
         .catch(error => 
             console.log(error)

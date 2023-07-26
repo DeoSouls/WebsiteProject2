@@ -15,7 +15,7 @@ class App extends React.Component {
       <div>
           <BrowserRouter>
             <Routes>
-              <Route path='/' element={<Main/>} />
+              <Route path='/*' element={<Main/>} />
               <Route path='/auth' element={<Auth/>} />
               <Route path='/register' element={<Registration/>} />
             </Routes>

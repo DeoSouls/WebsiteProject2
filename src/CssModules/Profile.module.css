@@ -1,0 +1,137 @@
+.profile_title_container {
+    width: auto;
+    height: 113px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #DFDFDF;
+}
+
+.profile_title_content {
+    width: 1200px;
+    font-family: 'Hind';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.general_container {
+    display: flex;
+    justify-content: center;
+}
+
+.middlenav_container {
+    width: 299px;
+    height: 448px; 
+}
+
+.content_container {
+    width: 904px;
+    height: 788px;
+}
+
+.middlenav_block {
+    margin-top: 40px;
+    width: 299px;
+    height: 200px;
+    display: block;
+}
+
+.middlenav_ref {
+    margin-top: 14px;
+    font-family: 'Cabin';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.default_avatar {
+    width: 118px;
+    height: 119px;
+    background: url("http://localhost:5000/default_avatar.png");
+}
+
+.upload_avatar {
+    display: flex;
+    margin-top: 28px;
+    margin-left: 42px;
+}
+
+.upload_image_btn {
+    margin-top: 48px;
+    margin-left: 42px;
+    width: 120px;
+    height: 32px;
+    border-radius: 24px;
+    border: 1px solid #0D0D0D;
+    background: #FFF;
+    font-family: 'Cabin';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.upload_image_btn:hover {
+    color: white;
+    background-color: black;
+}   
+
+.description_upload {
+    margin-left: 42px;
+    margin-top: 14px;
+    font-family: 'Hind';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.label_userinput {
+    margin-left: 42px;
+    display: flex;
+    height: 32px;
+    align-items: center;
+}
+
+.require_input {
+    width: 15px;
+    height: 15px;
+    margin-left: 9px;
+    margin-top: 3px;
+}
+
+.general_label {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 25px;
+    font-family: 'Hind';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.input_name {
+    margin-left: 42px;
+    width: 545px;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 11px;
+    border: 1px solid #000;
+    font-size: 15px;
+    outline: none;
+}
+
+.textarea_message {
+    width: 545px;
+    height: 136px;
+    margin-left: 42px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 11px;
+    border: 1px solid #000;
+    font-size: 15px;
+    outline: none;
+}

@@ -1,16 +1,136 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import styles from '../../CssModules/Main.module.css';
-import { Menu,  MenuItem, IconButton } from '@mui/material';
+import { Menu, MenuItem, IconButton } from '@mui/material';
 import { DehazeSharp } from '@mui/icons-material';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { fetchActivated } from '../../app/activatedSlice';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Profile from '../Account/Profile';
 import Media from 'react-media';
+import Search from './Search/Search';
+import Slider from './Slider/Slider';
+import { motion } from 'framer-motion';
 
 const Main = (props) => {
 
-    const navigation = useNavigate();
+    const dispatch = useAppDispatch();
+    const data = useAppSelector(state => state.activated);
 
-    window.addEventListener('scroll', onScroll);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenList, setIsOpenList] = useState(false);
+
+    const navigation = useNavigate();
+    const access_token = localStorage.getItem('access_token');
+    let user;
+
+    useEffect(() => {
+        dispatch(fetchActivated(access_token));
+    }, [])
+
+    if(Object.entries(data.userData).length > 0) {
+        user = data.userData;
+    }
+
+    const menu_profile = {
+        hidden: {
+            width: 25,
+            height: 25,
+            opacity: 0,
+            marginLeft: '-50%',
+            transition: {
+                when: "afterChildren",
+                staggerChildren: 0.06,
+                duration: 0.1
+            },
+            transitionEnd: {
+                display: 'none'
+            }
+        },  
+        open: {
+            width: 170,
+            height: 150,
+            opacity: 1,
+            marginLeft: '-400%',
+            display: 'block',
+            transition: {
+                delayChildren: 0.4,
+                staggerChildren: 0.1,
+                duration: 0.4
+            }
+        }
+    }
+
+    const item_profile = {
+        hidden: {
+            opacity: 0,
+            x: 20,
+        }, 
+        open: {
+            opacity: 1,
+            x: 10
+        }
+    }
+
+    const container_btn = { show: {
+        color: 'hsl(0,0,0)',
+        transition: {
+            duration: 0.4
+        }
+    }};
+
+    const container_background = {
+        show: {
+            x: 70,
+            y: -70,
+            transition: {
+                duration: 0.4
+            }
+        },
+    };
+
+    const container_menu = {
+        hidden: {
+            opacity: 0,
+            height: 0,
+            transition: {
+                delay: 0.6,
+                duration: 0.4
+            }
+        },
+        show: {
+            opacity: [1, 1],
+            height: [0, 300],
+            transition: {
+                delayChildren: 0.4,
+                duration: 0.4
+            }
+        }
+    };
+
+    const container_list = {
+        hidden: {
+            display: 'none',
+            transition: {
+                delay: 0.6,
+                staggerChildren: 0.05,
+                duration: 0.05
+            }
+        },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                duration: 0.2
+            }
+        }
+    };
+
+    const item = {
+        hidden: { opacity: 0, display: 'block'},
+        show: { opacity: 1, display: 'block' }
+    };
+    
     window.addEventListener('resize', (event: UIEvent) => {
         var media = window.matchMedia("(max-width: 970px)");
         var navMenu = document.getElementById('nav_menu');
@@ -29,94 +149,14 @@ const Main = (props) => {
         }
     });
 
+    window.addEventListener('scroll', onScroll);
     function onScroll() {
         let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
         var element = document.getElementById('nav_block');
         if(windowRelativeBottom < 1145) {
-            element?.setAttribute('style', 'height: 35px');
+            element?.setAttribute('style', 'height: 49px');
         } else {
             element?.setAttribute('style', 'height: 55px');
-        }
-    }
-
-    function expandRefs() {
-        const menu = document.getElementById('menu_refs') as HTMLElement;
-        var refs = [document.getElementById('l1'), document.getElementById('l2'), document.getElementById('l3'),
-        document.getElementById('l4'), document.getElementById('l5'), document.getElementById('l6'), 
-        document.getElementById('l7'), document.getElementById('l8')]; 
-
-        let j = 0;
-        if(menu.style.opacity === '1') {
-            let inTurnUnstyled = setInterval(() => {
-                refs[j]!.style.opacity = '0';
-                refs[j]!.style.display = 'none';
-    
-                ++j;
-                if(j === refs.length) {
-                    clearInterval(inTurnUnstyled);
-                }
-            }, 40)
-            menu.style.opacity = '0';
-            menu.style.height = '0px';
-        } else {
-            menu.style.opacity = '1';
-            menu.style.height = '300px';
-            let inTurnStyled = setInterval(() => {
-                refs[j]!.style.display = 'block';
-                refs[j]!.style.opacity = '1';
-
-                j++;
-                if(j === refs.length) {
-                    clearInterval(inTurnStyled);
-                }
-            }, 110)
-        }
-    }
-
-    function switchSlide(event: React.ChangeEvent<HTMLInputElement>) {
-        const btnId = event.currentTarget.getAttribute('id');
-        const slideLine = document.getElementById('slide_line');
-        
-        if(btnId === 'first_btn') {
-            slideLine.style.translate = '0px';
-        } else if (btnId === 'second_btn'){
-            slideLine.style.translate = '-700px';
-        } else if (btnId === 'third_btn'){
-            slideLine.style.translate = '-1400px';
-        } else if (btnId === 'fourth_btn'){
-            slideLine.style.translate = '-2100px';
-        }
-    }
-
-    function moveSlide(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-        const btnL = document.getElementById('prev_btn');
-        const btnR = document.getElementById('next_btn');
-        const slideLine = document.getElementById('slide_line');
-        var shift = slideLine.style.translate;
-        if (shift === '0px' || shift === '') {
-            if (btnR === event.target) {
-                slideLine.style.translate  = '-700px'
-                btnL.style.opacity = '1';
-            }
-        } else if (shift === '-700px') {
-            if (btnR === event.target) {
-                slideLine.style.translate  = '-1400px'
-            } else {
-                slideLine.style.translate  = '0px'
-                btnL.style.opacity = '0.5';
-            }
-        } else if (shift === '-1400px') {
-            if (btnR === event.target) {
-                slideLine.style.translate  = '-2100px'
-                btnR.style.opacity = '0.5';
-            } else {
-                slideLine.style.translate  = '-700px'
-            }
-        } else if (shift === '-2100px') {
-            if (btnL === event.target) {
-                slideLine.style.translate  = '-1400px'
-                btnR.style.opacity = '1';
-            }
         }
     }
 
@@ -124,15 +164,21 @@ const Main = (props) => {
         <div className={styles.main_style}>
             <div className={styles.main_nav}>
                 <div id='nav_block' className={styles.nav_block}>
-                    <ul>
-                        <li id='logo' ><a href="/"><div className={styles.elem_list_logo}></div></a></li>
+                    <ul style={{alignItems: 'center'}}>
+                        <li id='logo' style={{marginRight: '192px'}}>
+                            <a href="/">
+                                <div className={styles.elem_list_logo}>
+                                    <p className={styles.child_logo}>ebsite</p>
+                                </div>
+                            </a>
+                        </li>
                         <Media queries={{ small: "(max-width: 970px)", medium: "(min-width: 971px)"}}>
                             {matches => (
                                     <Fragment>
-                                        {matches.medium && <li id='home' onClick={e => expandRefs()}><p className={styles.elem_list_home}>Home</p></li>}
-                                        {matches.medium && <li id='catalog'><p className={styles.elem_list_catalog}>Catalog</p></li>}
-                                        {matches.medium && <li id='about'><p className={styles.elem_list_about}>About</p></li>}
-                                        {matches.medium && <li id='help'><p className={styles.elem_list_help}>Help</p></li>}
+                                        {matches.medium && <li id='home'  onClick={() => setIsOpen(!isOpen)}><p className={styles.elem_list_home}>Home</p></li>}
+                                        {matches.medium && <li id='catalog' onClick={() => setIsOpen(!isOpen)}><p className={styles.elem_list_catalog}>Catalog</p></li>}
+                                        {matches.medium && <li id='about' onClick={() => setIsOpen(!isOpen)}><p className={styles.elem_list_about}>About</p></li>}
+                                        {matches.medium && <li id='help' onClick={() => setIsOpen(!isOpen)}><p className={styles.elem_list_help}>Help</p></li>}
                                     </Fragment>
                                 )
                             }
@@ -147,103 +193,95 @@ const Main = (props) => {
                                                 <DehazeSharp/>
                                             </IconButton>
                                             <Menu {...bindMenu(popupState)}>
-                                                <MenuItem onClick={e => navigation('/auth')}>Home</MenuItem>
-                                                <MenuItem onClick={e => navigation('/register')}>Catalog</MenuItem>
-                                                <MenuItem onClick={e => navigation('/')}>About</MenuItem>
-                                                <MenuItem onClick={e => navigation('/')}>Help</MenuItem>
+                                                <MenuItem onClick={() => setIsOpen(!isOpen)}>Home</MenuItem>
+                                                <MenuItem onClick={() => setIsOpen(!isOpen)}>Catalog</MenuItem>
+                                                <MenuItem onClick={() => setIsOpen(!isOpen)}>About</MenuItem>
+                                                <MenuItem onClick={() => setIsOpen(!isOpen)}>Help</MenuItem>
                                             </Menu>
                                         </Fragment>
                                         )}/>
                                     )}
                             </PopupState>
                         </li>
+                        <li id='search' style={{marginRight: 0}}>
+                            <Search/>
+                        </li>
+                        <li style={{marginRight: 0, marginLeft: '3px'}}>
+                            {user?
+                            <div style={{position: 'relative'}}>
+                                <div className={styles.profile_container} onClick={() => setIsOpenList(!isOpenList)}></div>
+                                <motion.div className={styles.container_profile_menu} variants={menu_profile} animate={isOpenList? "open" : "hidden"}>
+                                    <a className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} onClick={() => navigation('/account/profile')} variants={item_profile}>Profile</motion.p></a>
+                                    <a href="" className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} variants={item_profile}>Login</motion.p></a>
+                                    <a href="" className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} variants={item_profile}>Phone number(s)</motion.p></a>
+                                    <a href="" className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} variants={item_profile}>Notifications</motion.p></a>
+                                </motion.div>
+                            </div>
+                            :
+                            <motion.button className={styles.sign_ref} whileHover="show" variants={container_btn}>
+                                <motion.p className={styles.content_btn} variants={container_btn}>Sign In</motion.p>
+                                <motion.div className={styles.backgr_btn} 
+                                variants={container_background}
+                                ></motion.div>
+                            </motion.button>
+                            }
+                        </li>
                     </ul>
-                    
                 </div>
-                <div id='menu_refs' className={styles.menu_refs}>
-                    <ul id='left_menu' className={styles.left_menu}>
-                        <li id='l1' className={styles.ref_on_page}>
-                            <a href="/" className={styles.style_ref}>Reference1
+                <motion.div id='menu_refs' className={styles.menu_refs} 
+                variants={container_menu}
+                animate={isOpen? "show" : "hidden"}
+                >
+                    <motion.ul id='left_menu' className={styles.left_menu} 
+                    variants={container_list} 
+                    >
+                        <motion.li id='l1' className={styles.ref_on_page} variants={item}>
+                            <a href="/register" className={styles.style_ref}>Reference1
                             <p className={styles.description_link}>Description for the link</p>
                             </a>
-                        </li>
-                        <li id='l2' className={styles.ref_on_page}>
-                            <a href="/" className={styles.style_ref}>Reference2
+                        </motion.li>
+                        <motion.li id='l2' className={styles.ref_on_page} variants={item}>
+                            <a href="/auth" className={styles.style_ref}>Reference2
                             <p className={styles.description_link}>Description for the link</p>
                             </a>
-                        </li>
-                    </ul>
-                    <ul id='left_menu' className={styles.left_menu}>
-                        <li id='l3' className={styles.ref_on_page}>
+                        </motion.li>
+                        <motion.li id='l3' className={styles.ref_on_page} variants={item}>
                             <a href="/" className={styles.style_ref}>Reference3
                             <p className={styles.description_link}>Description for the link</p>
                             </a>
-                        </li>
-                        <li id='l4' className={styles.ref_on_page}>
+                        </motion.li>
+                        <motion.li id='l4' className={styles.ref_on_page} variants={item}>
                             <a href="/" className={styles.style_ref}>Reference4
                             <p className={styles.description_link}>Description for the link</p>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul id='right_menu' className={styles.right_menu}>
-                        <li id='l5' className={styles.ref_on_page}>
+                           </a>
+                        </motion.li>
+                        <motion.li id='l5' className={styles.ref_on_page} variants={item}>
                             <a href="/" className={styles.style_ref}>Reference5
                             <p className={styles.description_link}>Description for the link</p>
                             </a>
-                        </li>
-                        <li id='l6' className={styles.ref_on_page}>
+                        </motion.li>
+                        <motion.li id='l6' className={styles.ref_on_page} variants={item}>
                             <a href="/" className={styles.style_ref}>Reference6
                             <p className={styles.description_link}>Description for the link</p>
                             </a>
-                        </li>
-                    </ul>
-                    <ul id='right_menu' className={styles.right_menu}>
-                        <li id='l7' className={styles.ref_on_page}>
+                        </motion.li>
+                        <motion.li id='l7' className={styles.ref_on_page} variants={item}>
                             <a href="/" className={styles.style_ref}>Reference7
                             <p className={styles.description_link}>Description for the link</p>
                             </a>
-                        </li>
-                        <li id='l8' className={styles.ref_on_page}>
+                        </motion.li>
+                        <motion.li id='l8' className={styles.ref_on_page} variants={item}>
                             <a href="/" className={styles.style_ref}>Reference8
                             <p className={styles.description_link}>Description for the link</p>
                             </a>
-                        </li>
-                    </ul>
-                </div>
+                        </motion.li>
+                    </motion.ul>
+                </motion.div>
             </div>
-            <div className={styles.container_sldr}>
-                <button id='prev_btn' className={styles.slide_left_btn} onClick={e => moveSlide(e)}>
-                    <img id='first_img' className={styles.photo_slider_btn_left} src="http://localhost:5000/arrow.png" alt="" />
-                </button>
-                <div className={styles.window_sldr}>
-                    <div id='slide_line' className={styles.line_sldr}>
-                        <img id='first_img' className={styles.photo_slider1} src="http://localhost:5000/slider1.jpg" alt="" />
-                        <img id='second_img' className={styles.photo_slider1} src="http://localhost:5000/slider2.jpg" alt="" />
-                    </div>
-                    <div className={styles.switches_sldr}>
-                        <div className={styles.form_radio}>
-                            <input id='first_btn' type="radio" name='slide' onChange={e => switchSlide(e)} />
-                            <label htmlFor="first_btn"></label>
-                        </div>
-                        <div className={styles.form_radio}>
-                            <input id='second_btn' type="radio" name='slide' onChange={e => switchSlide(e)} />
-                            <label htmlFor="second_btn"></label>
-                        </div>
-                        <div className={styles.form_radio}>
-                            <input id='third_btn' type="radio" name='slide' onChange={e => switchSlide(e)} />
-                            <label htmlFor="third_btn"></label>
-                        </div>
-                        <div className={styles.form_radio}>
-                            <input id='fourth_btn' type="radio" name='slide' onChange={e => switchSlide(e)} />
-                            <label htmlFor="fourth_btn"></label>
-                        </div>
-                    </div>
-                </div>
-                <button id='next_btn' className={styles.slide_right_btn} onClick={e => moveSlide(e)}>
-                    <img id='first_img' className={styles.photo_slider_btn_right} src="http://localhost:5000/arrow.png" alt="" />
-                </button>
-            </div>
-            
+            <Routes>
+                <Route path='' element={<Slider/>}></Route>
+                <Route path='account/*' element={<Profile/>}></Route>
+            </Routes>
         </div>
     )
 }

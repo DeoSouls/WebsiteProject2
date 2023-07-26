@@ -1,0 +1,107 @@
+.container_sldr {
+    width: auto;
+    height: max-content;
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.window_sldr {
+    width: 700px;
+    height: 500px;
+    display: flex;
+    border: 1px solid rgb(202, 202, 202);
+    overflow: hidden;
+    background-color: rgb(221, 221, 221);
+    position: relative;
+}
+
+.line_sldr {
+    display: flex;
+}
+
+.subline_sldr {
+    display: inline-block;
+    transform: translate(0px);
+    transition: all 0.7s ease-in-out;
+}
+
+.switches_sldr {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    top: 460px;
+    left: 306px;
+    position: absolute;
+}
+
+.slide_left_btn {
+    width: 40px;
+    border: none;
+    background-color: white;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.slide_left_btn:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+.slide_right_btn {
+    width: 40px;
+    border: none;
+    background-color: white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.slide_right_btn:hover {
+    background-color: rgb(245, 245, 245);
+}
+
+
+.photo_slider_btn_left {
+    margin-left: -4px;
+    transform: rotate(180deg);
+}
+
+.photo_slider_btn_right {
+    margin-left: -4px;
+}
+
+.form_radio  {
+    margin: 1px;
+}
+
+.form_radio input[type=radio] {
+   display: none;
+}
+
+.form_radio label {
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 7px;
+	margin-right: 0;
+	line-height: 18px;
+	user-select: none;
+}
+
+.form_radio label:before {
+    content: "";
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+    border-radius: 15px;
+	background-color: rgb(179, 179, 179);
+}
+
+.form_radio input[type=radio]:checked + label:before {
+	background-color: rgb(243, 243, 243);
+}
