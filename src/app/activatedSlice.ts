@@ -3,7 +3,10 @@ import { AppDispatch } from './store';
 import axios from 'axios';
 
 interface IUser {
+    firstname: string,
+    lastname: string,
     email: string,
+    number: string | null;
     isActivate: boolean
 }
 
@@ -22,7 +25,7 @@ const initialState: UserSlice = {
 export const fetchActivated = (token: string) => async (dispatch: AppDispatch) => {
     try {
         dispatch(activatedSlice.actions.fetchUserActivatedLoading());
-        const response = await axios.get("http://localhost:5000/auth/profile", {
+        const response = await axios.get("http://localhost:5000/profile/refresh", {
             headers: {
                 'Authorization': `Bearer ${token}`,
             },

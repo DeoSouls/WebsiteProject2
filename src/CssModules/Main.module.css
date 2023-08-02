@@ -11,7 +11,7 @@ body {
     width: auto;
     height: 55px;
     position: sticky;
-    z-index: 1;
+    z-index: 2;
 }
 
 .nav_block {
@@ -80,16 +80,6 @@ li {
     font-family: 'Alata';
 }
 
-.elem_list_about::before {
-    content: "";
-    position: absolute;
-    background: url("http://localhost:5000/white_arrow.png") round;
-    width: 20px;
-    height: 20px;
-    left: 57px;
-    top: 6px;
-}
-
 .elem_list_catalog {
     position: relative;
     text-decoration: none;
@@ -101,15 +91,24 @@ li {
     font-style: normal;
 }
 
-.elem_list_catalog::before {
-    content: "";
+.navimage_arrow {
     position: absolute;
-    background: url("http://localhost:5000/white_arrow.png") round;
     width: 20px;
     height: 20px;
-    left: 77px;
-    top: 8px;
+    top: 5px;
+    left: 75px;
+    transition: all 0.2s ease;
 }
+
+.navimage_arrow2 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    left: 57px;
+    transition: all 0.2s ease;
+}
+
 
 .elem_list_help {
     position: relative;
@@ -131,13 +130,15 @@ li {
 }
 
 .menu_refs {
-    width: auto;
+    width: 100%;
     height: max-content;
     border-bottom: 1px solid rgb(235, 235, 235);
     background-color: white;
     opacity: 0;
     display: flex;
     justify-content: center;
+    position: absolute;
+    z-index: 2;
 }
 
 .right_menu,
@@ -145,6 +146,7 @@ li {
     margin-top: 60px;
     display: grid;
     grid-template-columns: 190px 190px 190px 190px;
+    overflow: hidden;
 }
 
 .ref_on_page {
@@ -264,6 +266,7 @@ li {
     left: 12px;
     top: 40px;
     opacity: 0;
+    z-index: 3;
 }
 
 .profile_refs {

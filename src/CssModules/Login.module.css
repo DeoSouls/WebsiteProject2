@@ -1,0 +1,134 @@
+.login_container {
+    margin-left: 42px;
+    margin-top: 38px;
+}
+
+.title_login {
+    font-family: 'Hind';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.change_password,
+.change_email {
+    display: flex;
+    align-items: center;
+}
+
+.password_title,
+.email_title {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-family: 'Hind';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.password_content,
+.email_content {
+    margin-top: 0;
+    font-family: 'Hind';
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.change_email_btn {
+    margin-left: 145px;
+    width: 107px;
+    height: 28px;
+    font-family: 'Mallanna';
+    font-size: 15px;
+    border-radius: 21px;
+    border: 1px solid #000;
+    background: #FFF;
+    cursor: pointer;
+}
+
+.change_password_btn {
+    margin-left: 184px;
+    width: 133px;
+    height: 28px;
+    border-radius: 21px;
+    border: 1px solid #000;
+    background: #FFF;
+    font-family: 'Mallanna';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.login_underline {
+    margin-top: 16px;
+    width: 423.005px;
+    height: 1px;
+    background: #C2C2C2;
+}
+
+.virtual_submit_btn {
+    margin-top: -8px;
+    margin-right: 14px;
+    margin-bottom: 8px;
+    width: 100px;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+}
+
+.virtual_submit_btn_content {
+    font-family: 'Hind';
+    font-size: 19px;
+    font-weight: 500;
+    position: absolute;
+    top: -17px;
+    left: 20px;
+    z-index: 2;
+}
+
+.submit_btn {
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.success_msg {
+    margin: 0;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    font-family: 'Hind';
+    font-size: 15px;
+    color: rgb(19, 219, 46);
+    position: relative;
+}
+
+.success_msg::before {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url("http://localhost:5000/success_icon.png") round;
+    left: -22px;
+    top: 3px;
+}
+
+.virtual_submit_btn_backgr {
+    opacity: 1;
+    width: 150px;
+    height: 90px;
+    rotate: 45deg;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    top: -13px;
+    left: -142px;
+    z-index: 1;
+}

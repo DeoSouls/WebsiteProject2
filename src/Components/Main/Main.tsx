@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useMemo } from 'react';
 import styles from '../../CssModules/Main.module.css';
 import { Menu, MenuItem, IconButton } from '@mui/material';
 import { DehazeSharp } from '@mui/icons-material';
@@ -6,30 +6,37 @@ import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchActivated } from '../../app/activatedSlice';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import Profile from '../Account/Profile';
+import Account from '../Account/Account';
 import Media from 'react-media';
 import Search from './Search/Search';
 import Slider from './Slider/Slider';
 import { motion } from 'framer-motion';
+import { shallowEqual } from 'react-redux';
 
 const Main = (props) => {
 
     const dispatch = useAppDispatch();
-    const data = useAppSelector(state => state.activated);
-
+    
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenList, setIsOpenList] = useState(false);
+    const [newMail, setNewMail] = useState('');
+    const data = useAppSelector(state => state.activated, shallowEqual);
 
     const navigation = useNavigate();
     const access_token = localStorage.getItem('access_token');
     let user;
 
+    const onChangeMail = (isChange) => {
+        setNewMail(isChange)
+    }
+
     useEffect(() => {
         dispatch(fetchActivated(access_token));
-    }, [])
+    }, [newMail])
 
     if(Object.entries(data.userData).length > 0) {
         user = data.userData;
+        localStorage.setItem('firstname', user.firstname);
     }
 
     const menu_profile = {
@@ -118,7 +125,7 @@ const Main = (props) => {
             }
         },
         show: {
-            opacity: 1,
+            // opacity: 1,
             transition: {
                 staggerChildren: 0.1,
                 duration: 0.2
@@ -160,6 +167,25 @@ const Main = (props) => {
         }
     }
 
+    const expandMenu = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+        const nav = document.getElementById('catalog');
+        const arrow = document.getElementById('image_arrow');
+        const arrow2 = document.getElementById('image_arrow2');
+        if (event.currentTarget === nav) {
+            if(arrow.style.rotate === '-180deg')
+                arrow.style.rotate = '0deg';
+            else 
+                arrow.style.rotate = '-180deg';
+        } else {
+            if(arrow2.style.rotate === '-180deg')
+                arrow2.style.rotate = '0deg';
+            else 
+                arrow2.style.rotate = '-180deg';
+        }
+        
+        setIsOpen(!isOpen);
+    }
+
     return (
         <div className={styles.main_style}>
             <div className={styles.main_nav}>
@@ -175,10 +201,18 @@ const Main = (props) => {
                         <Media queries={{ small: "(max-width: 970px)", medium: "(min-width: 971px)"}}>
                             {matches => (
                                     <Fragment>
-                                        {matches.medium && <li id='home'  onClick={() => setIsOpen(!isOpen)}><p className={styles.elem_list_home}>Home</p></li>}
-                                        {matches.medium && <li id='catalog' onClick={() => setIsOpen(!isOpen)}><p className={styles.elem_list_catalog}>Catalog</p></li>}
-                                        {matches.medium && <li id='about' onClick={() => setIsOpen(!isOpen)}><p className={styles.elem_list_about}>About</p></li>}
-                                        {matches.medium && <li id='help' onClick={() => setIsOpen(!isOpen)}><p className={styles.elem_list_help}>Help</p></li>}
+                                        {matches.medium && <li id='home' onClick={() => navigation('/')}><p className={styles.elem_list_home}>Home</p></li>}
+                                        {matches.medium && <li id='catalog' onClick={expandMenu}>
+                                            <p className={styles.elem_list_catalog}>Catalog
+                                                <img src="http://localhost:5000/white_arrow.png" className={styles.navimage_arrow} id='image_arrow' />
+                                            </p>
+                                        </li>}
+                                        {matches.medium && <li id='about' onClick={expandMenu}>
+                                            <p className={styles.elem_list_about}>About
+                                                <img src="http://localhost:5000/white_arrow.png" className={styles.navimage_arrow2} id='image_arrow2' />
+                                            </p>
+                                        </li>}
+                                        {matches.medium && <li id='help' onClick={() => navigation('/')}><p className={styles.elem_list_help}>Help</p></li>}
                                     </Fragment>
                                 )
                             }
@@ -212,9 +246,9 @@ const Main = (props) => {
                                 <div className={styles.profile_container} onClick={() => setIsOpenList(!isOpenList)}></div>
                                 <motion.div className={styles.container_profile_menu} variants={menu_profile} animate={isOpenList? "open" : "hidden"}>
                                     <a className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} onClick={() => navigation('/account/profile')} variants={item_profile}>Profile</motion.p></a>
-                                    <a href="" className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} variants={item_profile}>Login</motion.p></a>
-                                    <a href="" className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} variants={item_profile}>Phone number(s)</motion.p></a>
-                                    <a href="" className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} variants={item_profile}>Notifications</motion.p></a>
+                                    <a className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} onClick={() => navigation('/account/login')} variants={item_profile}>Login</motion.p></a>
+                                    <a className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} onClick={() => navigation('/account/phone')} variants={item_profile}>Phone number(s)</motion.p></a>
+                                    <a className={styles.profile_refs}><motion.p whileHover={{ translateX: 10 }} onClick={() => navigation('/account/notifications')} variants={item_profile}>Notifications</motion.p></a>
                                 </motion.div>
                             </div>
                             :
@@ -280,7 +314,7 @@ const Main = (props) => {
             </div>
             <Routes>
                 <Route path='' element={<Slider/>}></Route>
-                <Route path='account/*' element={<Profile/>}></Route>
+                <Route path='account/*' element={<Account onChange={onChangeMail} user={data}/>}></Route>
             </Routes>
         </div>
     )

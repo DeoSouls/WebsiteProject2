@@ -1,0 +1,116 @@
+.phonesettings_container {
+    margin-left: 42px;
+    margin-top: 28px;
+}
+
+.phonesettings_description {
+    width: 579px;
+    font-family: 'Hind';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+}
+
+.flex_container {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.current_phone_title {
+    font-family: 'Hind';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    margin: 0;
+}
+
+.current_phone_content {
+    margin: 0;
+    font-family: 'Hind';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.phone_status {
+    margin-left: 18px;
+    color: #40E551;
+    font-family: 'Hind';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+}
+
+.phone_status::after {
+    content: "";
+    position: absolute;
+    left: 52px;
+    width: 18px;
+    height: 18px;
+    background: url("http://localhost:5000/success_icon.png") round;
+}
+
+.change_number_btn {
+    margin-left: 78px;
+    width: 131px;
+    height: 34px;
+    border-radius: 46px;
+    border: 1px solid #000;
+    background: #FFF;
+    font-family: 'Mallanna';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.input_number {
+    margin-top: 5px;
+    width: 205px;
+    height: 48px;
+    padding: 0 10px 0 35px;
+    border-radius: 6px;
+    border: 1px solid #000;
+    background: #FFF;
+    font-family: 'Hind';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+    outline: none;
+}
+
+.image_flag {
+    position: absolute;
+    width: 19px;
+    height: 15px;
+    margin-left: 10px;
+}
+
+.add_number_btn {
+    margin-left: 55px;
+    width: 111px;
+    height: 39px;
+    border-radius: 46px;
+    border: 1px solid #000;
+    background: #000;
+    color: #FFF;
+    font-family: 'Mallanna';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.under_message {
+    margin-top: 30px;
+    width: 520px;
+    color: #989797;
+    font-family: 'Hind';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+}

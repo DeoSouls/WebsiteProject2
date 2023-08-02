@@ -1,0 +1,74 @@
+.profile_title_container {
+    width: auto;
+    height: 113px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #DFDFDF;
+}
+
+.profile_title_content {
+    width: 1200px;
+    font-family: 'Hind';
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.general_container {
+    display: flex;
+    justify-content: center;
+}
+
+.middlenav_container {
+    width: 299px;
+    height: 448px; 
+}
+
+.content_container {
+    width: 904px;
+    height: 788px;
+}
+
+.middlenav_block {
+    margin-top: 40px;
+    width: 299px;
+    height: 200px;
+    display: block;
+}
+
+.middlenav_ref {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: 'Cabin';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.middlenav_ref input[type=radio] {
+    appearance: none;
+}
+
+.middlenav_ref label {
+    width: 150px;
+    cursor: pointer;
+    font-family: 'Cabin';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+}
+
+.checked_img {
+    opacity: 0;
+    width: 15px;
+    height: 15px;
+    margin-left: 4px;
+}
+
+.animate_transition {
+    width: 0px;
+    height: 1px;
+    background-color: #000;
+}

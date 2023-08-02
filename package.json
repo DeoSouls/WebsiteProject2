@@ -76,10 +76,13 @@
     "react-media": "^1.10.0",
     "react-redux": "^8.1.0",
     "react-router-dom": "^6.13.0",
+    "react-select": "^5.7.4",
+    "react-select-country-list": "^2.2.3",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-typescript2": "^0.35.0",
     "three": "^0.154.0",
     "timers-browserify": "^2.0.12",
+    "timezones.json": "^1.7.0",
     "typescript-plugin-css-modules": "^5.0.1",
     "yup": "0.32.9"
   }
