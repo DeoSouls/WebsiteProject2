@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -9,6 +7,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { UserModule } from './users/GraphUsers/users.module';
 import { RegModule } from './registration/req.module';
 import { AuthModule } from './authorization/auth.module';
+import { ProfileModule } from './profile/profile.module';
 import { join } from 'path';
 
 @Module({
@@ -22,7 +21,7 @@ import { join } from 'path';
       database: 'store_data',
       autoLoadModels: true,
       synchronize: true
-    }), UsersModule, RegModule, AuthModule,
+    }), UsersModule, RegModule, AuthModule, ProfileModule,
     UserModule, GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql',

@@ -10,7 +10,7 @@ export class RegController {
     @Post('user')
     async registration(@Body() regDto: Record<string,any>, @Res() response: FastifyReply) {
         try {
-            const payload = { email: regDto.email, isActivate: false};
+            const payload = { firstname: regDto.firstname, lastname: regDto.lastname, email: regDto.email, number: null, isActivate: false};
 
             const access_token = await this.jwtService.signAsync(payload);
             response.setCookie('access_token', access_token, {
@@ -20,7 +20,7 @@ export class RegController {
             })
 
             await this.regService.Registration(regDto.firstname, regDto.lastname, regDto.email, regDto.gender, regDto.password, regDto.captcha);
-            response.status(200).send({"message":'Registration completed successfully'})
+            response.status(200).send({"message":'Registration completed successfully', "token": access_token})
         } catch (e) {
             response.status(400).send(e.message);
         }

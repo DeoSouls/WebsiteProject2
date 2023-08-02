@@ -9,6 +9,9 @@ type Users {
   email: String!
   gender: String!
   password: String!
+  dateofbirth: String!
+  country: String!
+  timezone: String!
   isActive: Boolean!
 }
 

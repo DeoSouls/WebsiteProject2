@@ -21,5 +21,14 @@ export class Users {
     password: string;
 
     @Field()
+    dateofbirth: string;
+
+    @Field()
+    country: string;
+
+    @Field()
+    timezone: string;
+
+    @Field()
     isActive: boolean;
 }

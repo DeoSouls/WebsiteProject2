@@ -1,7 +1,6 @@
-import { Body, Controller, Post, HttpCode, HttpStatus, UseGuards, Request, Get, Res } from '@nestjs/common';
+import { Body, Controller, Post, HttpCode, HttpStatus, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { FastifyReply } from 'fastify';
-import { AuthGuard } from './auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -16,11 +15,5 @@ export class AuthController {
         } catch (e) {
             response.status(400).send(e.message);
         }
-    }
-
-    @UseGuards(AuthGuard)
-    @Get('profile')
-    getProfile(@Request() req) {
-        return req.user
     }
 }
