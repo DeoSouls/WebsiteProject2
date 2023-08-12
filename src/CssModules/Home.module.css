@@ -230,7 +230,7 @@
 .secondpart_Onbackground {
     width: 1920px;
     height: 1009px;
-    background: linear-gradient(179deg, #180D2F 50%, rgba(160, 0, 164, 0.40) 100%);
+    background: linear-gradient(179deg, #180D2F 55%, rgba(160, 0, 164, 0.40) 100%);
     position: absolute;
     z-index: 0;
 }
@@ -278,4 +278,66 @@
     border-width: 1px;
     border-image-slice: 1;
     border-image-source: linear-gradient(to top, rgba(173, 43, 160, 1), rgba(10, 164, 198, 0.81));
+}
+
+.description_advertise {
+    width: 100%;
+    height: max-content;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: 600px;
+}
+
+.advertise_title {
+    height: 51px;
+    margin: 0;
+    color: #FFF;
+    font-family: 'Hind';
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.underdescription_advertise {
+    width: 100%;
+    height: max-content;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: 680px;
+}
+
+.advertise_undertitle {
+    width: 580px;
+    margin: 0;
+    color: #7D7D7D;
+    text-align: center;
+    font-family: 'Hind';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 35px;
+}
+
+.underdescription_btn {
+    width: 100%;
+    height: max-content;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    margin-top: 800px;
+}
+
+.btn_advertise {
+    width: 212px;
+    height: 64px;
+    border-radius: 33px;
+    border: 1px solid #FFF;
+    background: rgba(0, 0, 0, 0.00);
+    color: #FFF;
+    font-family: 'Hind';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
 }

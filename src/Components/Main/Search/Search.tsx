@@ -12,7 +12,7 @@ const Search = (props) => {
         open: { width: 150, paddingRight: 40, backgroundColor: 'hsl(240,240,240)', transition: {
             duration: 0.5
         }},
-        closed: { width: 10, paddingRight: 15, backgroundColor: 'hsl(14,14,14)'}
+        closed: { width: 10, paddingRight: 15, backgroundColor: 'transparent'}
     }
 
     return (

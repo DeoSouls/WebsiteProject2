@@ -144,6 +144,15 @@ const Home = (props) => {
                     <div className={styles.apps_card2}></div>
                     <div className={styles.apps_card3}></div>
                 </div>
+                <div className={styles.description_advertise}>
+                    <p className={styles.advertise_title}>Try the fully automated solution</p>
+                </div>
+                <div className={styles.underdescription_advertise}>
+                    <p className={styles.advertise_undertitle}>Use all-in-one partnership management platform</p>
+                </div>
+                <div className={styles.underdescription_btn}>
+                    <button className={styles.btn_advertise}>Try it for free</button>
+                </div>
             </div>
         </div>
     )

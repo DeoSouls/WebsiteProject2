@@ -10,6 +10,7 @@ import Account from '../Account/Account';
 import Media from 'react-media';
 import Search from './Search/Search';
 import Slider from './Slider/Slider';
+import Catalog from '../Catalog/Catalog';
 import Home from '../Home/Home';
 import { motion } from 'framer-motion';
 import { shallowEqual } from 'react-redux';
@@ -281,7 +282,7 @@ const Main = (props) => {
                             </a>
                         </motion.li>
                         <motion.li id='l3' className={styles.ref_on_page} variants={item}>
-                            <a href="/" className={styles.style_ref}>Reference3
+                            <a onClick={() => navigation('/catalog')} className={styles.style_ref}>Reference3
                             <p className={styles.description_link}>Description for the link</p>
                             </a>
                         </motion.li>
@@ -317,6 +318,7 @@ const Main = (props) => {
                 {/* template slider for everything */}
                 {/* <Route path='' element={<Slider/>}></Route> */}
                 <Route path='/' element={<Home/>}></Route>
+                <Route path='/catalog' element={<Catalog/>}></Route>
                 <Route path='account/*' element={<Account onChange={onChangeMail} user={data}/>}></Route>
             </Routes>
         </div>

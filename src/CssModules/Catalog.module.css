@@ -1,0 +1,232 @@
+.base_container {
+    width: auto;
+    height: 954px;
+    position: relative;
+}
+
+.catalog_background {
+    width: 2151.943px;
+    height: 2094.067px;
+    position: absolute;
+    transform: rotate(42.25deg);
+    background: url('http://localhost:5000/second_phone.jpg') lightgray 50% / cover no-repeat;
+    top: -550px;
+    left: -200px;
+}
+
+.catalog_Onbackground {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    background: linear-gradient(180deg, rgba(22, 30, 37, 0.80) 0%, rgba(34, 53, 71, 0.80) 100%);
+    top: -55px;
+}
+
+.content_container,
+.sort_container {
+    display: flex;
+    justify-content: center;
+}
+
+.catalog_sort {
+    width: 1200px;
+    height: 80px;
+    color: white;
+    font-family: 'Hind';
+    font-size: 18px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    z-index: 1;
+}
+
+.catalog_content {
+    width: 1200px;
+    height: 543px;
+    display: flex;
+    position: relative;
+    margin-top: 10px;
+}
+
+.content_subcategory {
+    width: 323px;
+    height: 600px;
+    position: absolute;
+}
+
+.content_cards {
+    width: 877px;
+    height: 600px;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 261px 261px 261px;
+    row-gap: 30px;
+    column-gap: 46px;
+    margin-left: 323px;
+}
+
+.subcategory_style {
+    margin-top: 10px;
+    color: #FFF;
+    font-family: 'Hind';
+    font-size: 24px;
+    font-style: normal;
+}
+
+.subcategory_element {
+    margin-top: 10px;
+    color: #c8c8c8;
+    font-family: 'Hind';
+    font-size: 18px;
+    font-style: normal;
+}
+
+.subcategory_line {
+    width: 284.002px;
+    height: 1px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background: #FFF;
+}
+
+.radio_all_input {
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+}
+
+.radio_all_label {
+    color: #FFF;
+    font-family: 'Hind';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-left: 5px;
+    z-index: 1;
+}
+
+.radio_rate4_label {
+    color: #FFF;
+    font-family: 'Hind';
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-left: 5px;
+    z-index: 1;
+}
+
+.radio_rate3_label {
+    color: #FFF;
+    font-family: 'Hind';
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-left: 5px;
+    z-index: 1;
+}
+
+.radio_rate2_label {
+    color: #FFF;
+    font-family: 'Hind';
+    font-size: 18px;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-left: 5px;
+    z-index: 1;
+}
+
+.card_background {
+    width: 261px;
+    height: 252px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, #FFF 0%, #53C0C0 45.31%, rgba(236, 133, 253, 0.63) 100%);
+    box-shadow: 5px 5px 8px 0px rgba(9, 202, 228, 0.65);
+}
+
+.background_image {
+    width: 261px;
+    height: 73px;
+    border-radius: 3px 3px 0px 0px;
+    background: linear-gradient(0deg, #FFF 0%, #FFF 100%), linear-gradient(0deg, #FFF 0%, #FFF 100%), #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_image {
+    width: 119px;
+    height: 46px;
+    background: url('http://localhost:5000/impact.jpg') lightgray 50% / cover no-repeat;
+}
+
+.title_card {
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 15px;
+    font-family: 'Hind';
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.ref_card {
+    color: #0038FF;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: 'Hind';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.description_card {
+    width: 228px;
+    height: 55px;
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 10px;
+    color: #000;
+    font-family: 'Hind';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.card_review_container {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 16px;
+    align-items: center;
+}
+
+.card_rate {
+    width: 80px;
+    height: 16px;
+    background: url('http://localhost:5000/rate4.png');
+    margin-top: -3px;
+}
+
+.card_reviews {
+    width: 53px;
+    height: 14px;
+    margin: 0;
+    margin-top: -5px;
+    margin-left: 10px;
+    color: #030303;
+    font-family: 'Hind';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+}
