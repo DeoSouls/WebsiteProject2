@@ -10,6 +10,7 @@ import Account from '../Account/Account';
 import Media from 'react-media';
 import Search from './Search/Search';
 import Slider from './Slider/Slider';
+import Home from '../Home/Home';
 import { motion } from 'framer-motion';
 import { shallowEqual } from 'react-redux';
 
@@ -156,16 +157,16 @@ const Main = (props) => {
         }
     });
 
-    window.addEventListener('scroll', onScroll);
-    function onScroll() {
-        let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
-        var element = document.getElementById('nav_block');
-        if(windowRelativeBottom < 1145) {
-            element?.setAttribute('style', 'height: 49px');
-        } else {
-            element?.setAttribute('style', 'height: 55px');
-        }
-    }
+    // window.addEventListener('scroll', onScroll);
+    // function onScroll() {
+    //     let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+    //     var element = document.getElementById('nav_block');
+    //     if(windowRelativeBottom < 1145) {
+    //         element?.setAttribute('style', 'height: 49px');
+    //     } else {
+    //         element?.setAttribute('style', 'height: 55px');
+    //     }
+    // }
 
     const expandMenu = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
         const nav = document.getElementById('catalog');
@@ -313,7 +314,9 @@ const Main = (props) => {
                 </motion.div>
             </div>
             <Routes>
-                <Route path='' element={<Slider/>}></Route>
+                {/* template slider for everything */}
+                {/* <Route path='' element={<Slider/>}></Route> */}
+                <Route path='/' element={<Home/>}></Route>
                 <Route path='account/*' element={<Account onChange={onChangeMail} user={data}/>}></Route>
             </Routes>
         </div>

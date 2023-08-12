@@ -1,0 +1,281 @@
+.home_container {
+    width: auto;
+    background-color: #1D1D1D;
+    position: relative;
+}
+
+.base_container {
+    width: auto;
+    height: 950px;
+    background-color: #FFF;
+}
+
+.position_page_number,
+.position_start_btns,
+.position_undertitle,
+.position_title {
+    display: flex;
+    justify-content: center;
+}
+
+.main_title_container {
+    width: 1203px;
+    margin-top: 154px;
+    position: absolute;
+}
+
+.main_undertitle_container {
+    width: 1203px;
+    margin-top: 360px;
+    position: absolute;
+}
+
+.start_btns_container {
+    display: flex;
+    align-items: center;
+    width: 1203px;
+    margin-top: 501px;
+    position: absolute;
+}
+
+.page_number_container {
+    display: flex;
+    justify-content: space-between;
+    width: 1203px;
+    margin-top: 830px;
+    position: absolute;
+}
+
+.direction_page_number {
+    display: flex;
+    position: relative;
+}
+
+.description_page {
+    margin: 0;
+    color: #FFF;
+    font-family: 'Hind';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.contact_btn {
+    width: 151px;
+    height: 49px;
+    border-radius: 23px;
+    border: 1px solid #000;
+    background: #FFF;
+    color: #000;
+    font-family: 'Karla';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.getstarted_btn {
+    text-decoration: none;
+    color: #FFF;
+    font-family: 'Karla';
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    margin-left: 36px;
+    cursor: pointer;
+    position: relative;
+}
+
+.getstarted_btn::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    rotate: -90deg;
+    left: 123px;
+    top: 3px;
+    background: url('http://localhost:5000/white_arrow.png') round;
+    transition: all 0.1s ease-in;
+}
+
+.getstarted_btn:hover::after {
+    translate: 8px;
+}
+
+.page_number {
+    color: #FFF;
+    font-family: 'Hind';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+}
+
+.page_number_decorateline {
+    width: 102px;
+    height: 1px;
+    background: #FFF;
+    margin-top: 27px;
+    margin-left: 12px;
+}
+
+.decoratepoints_number {
+    width: 93px;
+    height: 29px;
+    background: url('http://localhost:5000/points1.png') round;
+    position: absolute;
+    left: 48px;
+    top: -15px;
+}
+
+.decoratepoints_description {
+    width: 41px;
+    height: 42px;
+    background: url('http://localhost:5000/points2.png') round;
+    position: absolute;
+    left: 720px;
+    top: -8px;
+}
+
+.main_title {
+    color: #FFF;
+    font-family: 'Karla';
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    width: 609px;
+    margin: 0;
+}
+
+.main_undertitle {
+    width: 562px;
+    color: #CBCACA;
+    font-family: 'Karla';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 38px;
+    margin: 0;
+}
+
+.decorate_background {
+    width: 2173.487px;
+    height: 2110.698px;
+    position: absolute;
+    transform: rotate(43deg);
+    background: url('http://localhost:5000/phone3.jpg') lightgray 50% / cover no-repeat;
+    z-index: 0;
+    left: -155px;
+    top: -600px;
+}
+
+.decorateOn_background {
+    width: 1920px;
+    height: 1009px;
+    background: radial-gradient(157.13% 155.69% at 49.04% 50.00%, rgba(0, 0, 0, 0.93) 0%, rgba(101, 4, 109, 0.87) 100%);
+    position: absolute;
+    top: -55px;
+    z-index: 0;
+}
+
+.D3model_position {
+    position: absolute;
+    width: 100%;
+    height: 569px;
+    margin-top: 125px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.D3model_container {
+    display: flex;
+    justify-content: end;
+    width: 1253px;
+    position: relative;
+}
+
+/* .D3model {
+    width: 578px;
+    height: 569px;
+    background: url("http://localhost:5000/3dmodel.png") no-repeat;
+} */
+
+.D3model {
+    position: absolute;
+    z-index: 4;
+}
+
+.secondpart_container {
+    width: auto;
+    height: 1009px;
+    background-color: #FFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.secondpart_background {
+    width: 1591.601px;
+    height: 1848.811px;
+    transform: rotate(53.5deg);
+    position: absolute;
+    background: url('http://localhost:5000/second_phone.jpg') lightgray 50% / cover no-repeat;
+    z-index: 0;
+    top: -120px;
+    left: 120px;
+    overflow: hidden;
+}
+
+.secondpart_Onbackground {
+    width: 1920px;
+    height: 1009px;
+    background: linear-gradient(179deg, #180D2F 50%, rgba(160, 0, 164, 0.40) 100%);
+    position: absolute;
+    z-index: 0;
+}
+
+.apps_container {
+    height: 416px;
+    width: max-content;
+    position: absolute;
+    display: flex;
+    top: 104px;
+    left: 80px;
+}
+
+.apps_card1 {
+    width: 513px;
+    height: 416px;
+    margin-right: 44px;
+    background: url('http://localhost:5000/nofraud.jpeg') lightgray 50% / cover no-repeat;
+    box-shadow: 12px 13px 7px 0px rgba(131, 131, 131, 0.25);
+    border: 1px solid;
+    border-width: 1px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to top, rgba(173, 43, 160, 1), rgba(10, 164, 198, 0.81));
+}
+
+.apps_card2 {
+    width: 513px;
+    height: 416px;
+    margin-right: 44px;
+    background: url('http://localhost:5000/stamped.png') lightgray 50% / cover no-repeat;
+    box-shadow: 12px 13px 7px 0px rgba(131, 131, 131, 0.25);
+    border: 1px solid;
+    border-width: 1px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to top, rgba(173, 43, 160, 1), rgba(10, 164, 198, 0.81));
+}
+
+.apps_card3 {
+    width: 513px;
+    height: 416px;
+    margin-right: 44px;
+    background: url('http://localhost:5000/impact.jpg') lightgray 50% / cover no-repeat;
+    box-shadow: 12px 13px 7px 0px rgba(131, 131, 131, 0.25);
+    border: 1px solid;
+    border-width: 1px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to top, rgba(173, 43, 160, 1), rgba(10, 164, 198, 0.81));
+}

@@ -7,12 +7,21 @@
     border-bottom: 1px solid #DFDFDF;
 }
 
+.nav_background {
+    width: 100%;
+    height: 65px;
+    background: #1D1D1D;
+    position: absolute;
+    top: 0;
+}
+
 .profile_title_content {
     width: 1200px;
-    font-family: 'Hind';
+    font-family: 'Hind Guntur';
     font-size: 40px;
     font-style: normal;
     font-weight: 300;
+    margin-top: 58px;
 }
 
 .general_container {
@@ -40,7 +49,7 @@
 .middlenav_ref {
     display: inline-block;
     margin-top: 14px;
-    font-family: 'Cabin';
+    font-family: 'Cantarell';
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -51,9 +60,9 @@
 }
 
 .middlenav_ref label {
-    width: 150px;
+    width: 190px;
     cursor: pointer;
-    font-family: 'Cabin';
+    font-family: 'Cantarell';
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -65,6 +74,7 @@
     width: 15px;
     height: 15px;
     margin-left: 4px;
+    margin-top: 2px;
 }
 
 .animate_transition {

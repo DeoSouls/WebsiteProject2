@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const PhoneNumbers = (props) => {
 
-    const [isExistNumber, setIsExistNumber] = useState(props.user.userData.number !== undefined? true : false);
+    const [isExistNumber, setIsExistNumber] = useState(props.user.userData.number !== undefined && props.user.userData.number !== null? true : false);
 
     useEffect(() => {
         props.onMount("phone");

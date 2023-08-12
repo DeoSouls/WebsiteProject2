@@ -53,6 +53,7 @@ const Account = (props) => {
 
     return (
         <div>
+            <div className={styles.nav_background}></div>
             <div className={styles.profile_title_container}>
                 <p className={styles.profile_title_content}>Account settings</p>
             </div>
@@ -63,7 +64,7 @@ const Account = (props) => {
                             <motion.div variants={container_refs} whileHover='show' style={{display: 'flex', alignItems: 'center'}} onClick={() => navigation('profile')}>
                                 <motion.div variants={var_refs} className={styles.animate_transition}></motion.div>
                                 <input id='nav_profile' type="radio" name='nav_account' onChange={changePage}/>
-                                <label htmlFor='nav_profile' style={{width: 57}}>Profile</label>
+                                <label htmlFor='nav_profile' style={{width: 64}}>Profile</label>
                                 <img src="http://localhost:5000/arrow.png" className={styles.checked_img} id='arrow1'/>
                             </motion.div>
                         </li>
@@ -71,7 +72,7 @@ const Account = (props) => {
                             <motion.div variants={container_refs} whileHover='show' style={{display: 'flex', alignItems: 'center'}} onClick={() => navigation('login')}>
                                 <motion.div variants={var_refs} className={styles.animate_transition}></motion.div>
                                 <input id='nav_login' type="radio" name='nav_account' onChange={changePage}/>
-                                <label htmlFor='nav_login' style={{width: 49}}>Login</label>
+                                <label htmlFor='nav_login' style={{width: 53}}>Login</label>
                                 <img src="http://localhost:5000/arrow.png" className={styles.checked_img} id='arrow2'/>
                             </motion.div>
                         </li>
@@ -79,7 +80,7 @@ const Account = (props) => {
                             <motion.div variants={container_refs} whileHover='show' style={{display: 'flex', alignItems: 'center'}} onClick={() => navigation('phone')}>
                                 <motion.div variants={var_refs} className={styles.animate_transition}></motion.div>
                                 <input id='nav_phone' type="radio" name='nav_account' onChange={changePage}/>
-                                <label htmlFor='nav_phone' style={{width: 147}}>Phone number(s)</label>
+                                <label htmlFor='nav_phone' style={{width: 160}}>Phone number(s)</label>
                                 <img src="http://localhost:5000/arrow.png" className={styles.checked_img} id='arrow3'/>
                             </motion.div>
                         </li>
@@ -87,7 +88,7 @@ const Account = (props) => {
                             <motion.div variants={container_refs} whileHover='show' style={{display: 'flex', alignItems: 'center'}} onClick={() => navigation('notifications')}>
                                 <motion.div variants={var_refs} className={styles.animate_transition}></motion.div>
                                 <input id='nav_notifications' type="radio" name='nav_account' onChange={changePage}/>
-                                <label htmlFor='nav_notifications' style={{width: 110}}>Notifications</label>
+                                <label htmlFor='nav_notifications' style={{width: 122}}>Notifications</label>
                                 <img src="http://localhost:5000/arrow.png" className={styles.checked_img} id='arrow4'/>
                             </motion.div>
                         </li>

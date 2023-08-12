@@ -107,10 +107,16 @@
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 11px;
-    border: 1px solid #000;
+    border: 1px solid #9c9c9c;
     font-size: 17px;
     font-family: 'Hind';
     outline: none;
+    transition: 0.2s all ease-in;
+}
+
+.select_timezone:hover,
+.input_name:hover {
+    border: 1px solid #2e2e2e;
 }
 
 .textarea_message {
@@ -119,13 +125,18 @@
     margin-left: 42px;
     padding: 4px 10px 4px 10px;
     border-radius: 11px;
-    border: 1px solid #000;
+    border: 1px solid #9c9c9c;
     font-family: 'Hind';
     font-size: 17px;
     resize: vertical;
     min-height: 80px;
     max-height: 152px;
     outline: none;
+    transition: 0.2s all ease-in;
+}
+
+.textarea_message:hover {
+    border: 1px solid #2e2e2e;
 }
 
 .choose_container {
@@ -138,10 +149,15 @@
     margin-left: 42px;
     padding: 0 10px 0 10px;
     border-radius: 11px;
-    border: 1px solid #000;
+    border: 1px solid #9c9c9c;
     outline: none;
     font-size: 17px;
     font-family: 'Hind';
+    transition: 0.2s all ease-in;
+}
+
+.birth_input:hover {
+    border: 1px solid #2e2e2e;
 }
 
 .select_country {
@@ -150,10 +166,15 @@
     margin-left: 59px;
     padding: 0 10px 0 10px;
     border-radius: 11px;
-    border: 1px solid #000;
+    border: 1px solid #9c9c9c;
     outline: none;
     font-size: 17px;
     font-family: 'Hind';
+    transition: 0.2s all ease-in;
+}
+
+.select_country:hover {
+    border: 1px solid #2e2e2e;
 }
 
 .savecancel_container {
